@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UTSHIKA ❤️</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  min-height:100vh;
+  overflow:hidden;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#12001f,#5b0b46,#d4145a);
+  color:white;
+}
+
+.screen{
+  min-height:100vh;
+  width:100%;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:25px;
+  animation:show .8s ease;
+}
+
+.active{
+  display:flex;
+}
+
+.box{
+  width:100%;
+  max-width:480px;
+}
+
+.logo{
+  font-size:70px;
+  margin-bottom:20px;
+  animation:pulse 2s infinite;
+}
+
+h1{
+  font-size:48px;
+  letter-spacing:3px;
+  margin-bottom:18px;
+}
+
+h2{
+  font-size:32px;
+  margin-bottom:20px;
+}
+
+p{
+  font-size:20px;
+  line-height:1.7;
+}
+
+.small{
+  font-size:15px;
+  opacity:.75;
+  margin-top:18px;
+}
+
+.loading{
+  width:85%;
+  height:9px;
+  background:rgba(255,255,255,.2);
+  border-radius:20px;
+  margin:30px auto 12px;
+  overflow:hidden;
+}
+
+.bar{
+  height:100%;
+  width:0;
+  background:white;
+  border-radius:20px;
+  animation:load 3s forwards;
+}
+
+button{
+  border:0;
+  padding:15px 38px;
+  margin-top:28px;
+  border-radius:40px;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+  background:white;
+  color:#d4145a;
+  box-shadow:0 8px 25px rgba(0,0,0,.3);
+}
+
+button:active{
+  transform:scale(.94);
+}
+
+.next{
+  margin-top:30px;
+}
+
+.heart{
+  position:fixed;
+  bottom:-40px;
+  font-size:25px;
+  pointer-events:none;
+  animation:float 6s linear forwards;
+}
+
+.note{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:25px;
+  padding:28px 22px;
+  backdrop-filter:blur(8px);
+}
+
+.choice{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+}
+
+.choice button{
+  min-width:130px;
+}
+
+.no{
+  background:transparent;
+  border:1px solid white;
+  color:white;
+}
+
+#answer{
+  margin-top:25px;
+  font-size:21px;
+  line-height:1.6;
+}
+
+@keyframes show{
+  from{
+    opacity:0;
+    transform:scale(.92) translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:scale(1) translateY(0);
+  }
+}
+
+@keyframes pulse{
+  50%{transform:scale(1.12)}
+}
+
+@keyframes load{
+  to{width:100%}
+}
+
+@keyframes float{
+  from{
+    transform:translateY(0) rotate(0);
+    opacity:0;
+  }
+  20%{opacity:1}
+  to{
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADING -->
+<section class="screen active" id="s0">
+  <div class="box">
+    <div class="logo">❤️</div>
+    <h1>UTSHIKA</h1>
+    <p>Preparing something special...</p>
+
+    <div class="loading">
+      <div class="bar"></div>
+    </div>
+
+    <p class="small">Please wait... ✨</p>
+  </div>
+</section>
+
+
+<!-- STEP 1 -->
+<section class="screen" id="s1">
+  <div class="box">
+    <div class="logo">🧸</div>
+    <h2>Step 1 ❤️</h2>
+
+    <div class="note">
+      <p>
+        Kuch rishte naam se nahi,<br>
+        <b>feelings se special</b> hote hain. ❤️
+      </p>
+    </div>
+
+    <button class="next" onclick="next(1)">
+      NEXT ➜
+    </button>
+  </div>
+</section>
+
+
+<!-- STEP 2 -->
+<section class="screen" id="s2">
+  <div class="box">
+    <div class="logo">✨</div>
+    <h2>Step 2 💕</h2>
+
+    <div class="note">
+      <p>
+        Tumhari ek smile 😊<br>
+        kisi ka pura din better kar sakti hai.
+        <br><br>
+        Isliye hamesha smile karti rehna. ❤️
+      </p>
+    </div>
+
+    <button class="next" onclick="next(2)">
+      NEXT ➜
+    </button>
+  </div>
+</section>
+
+
+<!-- STEP 3 -->
+<section class="screen" id="s3">
+  <div class="box">
+    <div class="logo">💖</div>
+    <h2>Step 3</h2>
+
+    <div class="note">
+      <p>
+        Har relationship me kabhi hasi,<br>
+        kabhi narazgi aur kabhi choti-moti
+        nok-jhok hoti hai.
+        <br><br>
+        Lekin kuch log dil me<br>
+        <b>hamesha special</b> rehte hain. ❤️
+      </p>
+    </div>
+
+    <button class="next" onclick="next(3)">
+      NEXT ➜
+    </button>
+  </div>
+</section>
+
+
+<!-- STEP 4 -->
+<section class="screen" id="s4">
+  <div class="box">
+    <div class="logo">🥺❤️</div>
+    <h2>Ek chhoti si baat...</h2>
+
+    <div class="note">
+      <p>
+        UTSHIKA sirf ek naam nahi...
+        <br><br>
+        <b>ek khoobsurat bond hai.</b>
+        <br><br>
+        Aur kuch bonds ko words se
+        explain nahi kiya ja sakta. ♾️
+      </p>
+    </div>
+
+    <button class="next" onclick="next(4)">
+      NEXT ➜
+    </button>
+  </div>
+</section>
+
+
+<!-- SPECIAL SURPRISE -->
+<section class="screen" id="s5">
+  <div class="box">
+    <div class="logo">🎁</div>
+    <h1>Special Surprise</h1>
+
+    <div class="note">
+      <p>
+        UTSHIKA ❤️
+        <br><br>
+        Ab ek last question...
+        <br><br>
+        <b>Kya tum mujhe<br>
+        “I LOVE YOU” ❤️ bolna chahogi?</b>
+      </p>
+
+      <div class="choice">
+        <button onclick="yes()">HAA ❤️</button>
+        <button class="no" onclick="nope()">NAHI 🙈</button>
+      </div>
+
+      <div id="answer"></div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+
+let current=0;
+
+function next(n){
+  document.getElementById("s"+n).classList.remove("active");
+  document.getElementById("s"+(n+1)).classList.add("active");
+
+  hearts(8);
+}
+
+setTimeout(function(){
+  document.getElementById("s0").classList.remove("active");
+  document.getElementById("s1").classList.add("active");
+  hearts(15);
+},3500);
+
+
+function yes(){
+
+  document.getElementById("answer").innerHTML=
+  "Awww 🥺❤️<br><br>"+
+  "<b>I LOVE YOU TOO ❤️</b><br>"+
+  "UTSHIKA ♾️<br><br>"+
+  "This little surprise was made specially for you. 🧸💕";
+
+  hearts(45);
+}
+
+
+function nope(){
+
+  document.getElementById("answer").innerHTML=
+  "Hehe 🙈❤️<br><br>"+
+  "Koi baat nahi...<br>"+
+  "Smile karna mat bhoolna. 😊💕";
+}
+
+
+function hearts(amount){
+
+  for(let i=0;i<amount;i++){
+
+    let h=document.createElement("div");
+
+    h.className="heart";
+
+    h.innerHTML=
+      Math.random()>.5 ? "❤️" : "💗";
+
+    h.style.left=
+      Math.random()*100+"vw";
+
+    h.style.animationDuration=
+      (4+Math.random()*4)+"s";
+
+    h.style.fontSize=
+      (18+Math.random()*25)+"px";
+
+    document.body.appendChild(h);
+
+    setTimeout(()=>{
+      h.remove();
+    },8000);
+  }
+}
+
+</script>
+
+</body>
+  </html>

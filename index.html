@@ -1,748 +1,157 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>For UTSHIKA ❤️</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UTSHIKA ✨</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html,body{
-  width:100%;
-  height:100%;
-  overflow:hidden;
-  font-family:Arial,sans-serif;
-  background:#05020a;
-  color:#fff;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
 body{
-  position:relative;
+  background:#05030a;color:white;font-family:Arial,sans-serif;
+  overflow:hidden;height:100vh
 }
-
-/* BACKGROUND */
-.bg{
-  position:fixed;
-  inset:0;
+.slide{
+  position:absolute;inset:0;display:flex;align-items:center;
+  justify-content:center;text-align:center;padding:25px;
+  opacity:0;transform:scale(1.08);
+  transition:1s ease;pointer-events:none;
   background:
-    radial-gradient(circle at 20% 20%,rgba(255,40,130,.25),transparent 30%),
-    radial-gradient(circle at 80% 80%,rgba(150,40,255,.22),transparent 30%),
-    linear-gradient(135deg,#05020a,#180817,#08030d);
+   radial-gradient(circle at 50% 35%,#63235f55,transparent 35%),
+   radial-gradient(circle at 20% 80%,#ff3d8150,transparent 30%),
+   #05030a
 }
-
-.glow{
-  position:absolute;
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  filter:blur(70px);
-  opacity:.45;
-  animation:moveGlow 8s infinite alternate ease-in-out;
+.slide.active{opacity:1;transform:scale(1);pointer-events:auto}
+.box{max-width:390px;width:100%}
+.small{letter-spacing:5px;color:#ffb6dc;font-size:12px;margin-bottom:20px}
+h1{
+ font-size:58px;letter-spacing:8px;
+ background:linear-gradient(90deg,#fff,#ff9fd2,#fff);
+ -webkit-background-clip:text;color:transparent;
+ text-shadow:0 0 30px #ff4da688
 }
-
-.g1{
-  background:#ff197d;
-  top:-80px;
-  left:-70px;
+h2{font-size:30px;margin:18px 0}
+p{color:#ddd;line-height:1.8;font-size:16px}
+button{
+ margin-top:35px;border:1px solid #ff9dcc;background:#ffffff12;
+ color:white;padding:15px 28px;border-radius:40px;
+ font-size:15px;box-shadow:0 0 25px #ff4d9d55
 }
-
-.g2{
-  background:#7b2cff;
-  right:-80px;
-  bottom:-80px;
-  animation-delay:2s;
-}
-
-@keyframes moveGlow{
-  to{
-    transform:translate(70px,50px) scale(1.2);
-  }
-}
-
-/* SCREEN */
-.screen{
-  position:absolute;
-  inset:0;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:25px;
-  text-align:center;
-}
-
-.active{
-  display:flex;
-  animation:screenIn 1s cubic-bezier(.2,.8,.2,1);
-}
-
-@keyframes screenIn{
-  from{
-    opacity:0;
-    transform:scale(1.06);
-  }
-  to{
-    opacity:1;
-    transform:scale(1);
-  }
-}
-
-.content{
-  width:100%;
-  max-width:440px;
-  position:relative;
-  z-index:5;
-}
-
-/* TEXT */
-.mini{
-  font-size:13px;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  opacity:.65;
-  margin-bottom:18px;
-}
-
-.title{
-  font-size:clamp(42px,13vw,70px);
-  letter-spacing:7px;
-  font-weight:800;
-  text-shadow:0 0 30px rgba(255,70,160,.7);
-}
-
-.subtitle{
-  margin-top:18px;
-  font-size:18px;
-  line-height:1.7;
-  opacity:.9;
-}
-
-.pink{
-  color:#ff72b4;
-}
-
-/* GLASS CARD */
 .card{
-  margin-top:25px;
-  padding:28px 22px;
-  border-radius:30px;
-  background:rgba(255,255,255,.075);
-  border:1px solid rgba(255,255,255,.16);
-  box-shadow:
-    0 20px 70px rgba(0,0,0,.45),
-    inset 0 1px rgba(255,255,255,.12);
-  backdrop-filter:blur(18px);
+ margin:auto;width:270px;height:340px;border-radius:28px;
+ display:flex;align-items:center;justify-content:center;
+ font-size:90px;
+ background:linear-gradient(145deg,#ff7eb355,#7c4dff44);
+ border:1px solid #ffffff33;
+ box-shadow:0 20px 70px #ff3d8166;
+ animation:float 3s ease-in-out infinite
 }
-
-.card p{
-  font-size:18px;
-  line-height:1.8;
+@keyframes float{50%{transform:translateY(-15px) rotate(1deg)}}
+.heart{font-size:75px;animation:pulse 1.4s infinite}
+@keyframes pulse{50%{transform:scale(1.18)}}
+.teddy{font-size:110px;animation:float 2.5s infinite}
+.dots{position:fixed;bottom:25px;left:0;right:0;text-align:center}
+.dot{
+ display:inline-block;width:7px;height:7px;background:#ffffff55;
+ border-radius:50%;margin:4px
 }
-
-.highlight{
-  color:#ff8ac4;
-  font-weight:bold;
-}
-
-/* BUTTON */
-.btn{
-  margin-top:28px;
-  padding:15px 35px;
-  border:1px solid rgba(255,255,255,.25);
-  border-radius:50px;
-  background:linear-gradient(135deg,#ff3c91,#9d35ff);
-  color:white;
-  font-size:16px;
-  font-weight:bold;
-  box-shadow:0 10px 35px rgba(255,40,130,.35);
-  cursor:pointer;
-  transition:.3s;
-}
-
-.btn:active{
-  transform:scale(.94);
-}
-
-/* HEART */
-.heart{
-  position:fixed;
-  bottom:-50px;
-  z-index:2;
-  pointer-events:none;
-  animation:floatUp linear forwards;
-}
-
-@keyframes floatUp{
-  0%{
-    transform:translateY(0) scale(.5) rotate(0);
-    opacity:0;
-  }
-  15%{opacity:1}
-  100%{
-    transform:translateY(-115vh) scale(1.2) rotate(360deg);
-    opacity:0;
-  }
-}
-
-/* PHOTO */
-.photoWrap{
-  width:100%;
-  height:55vh;
-  max-height:510px;
-  border-radius:28px;
-  overflow:hidden;
-  position:relative;
-  border:1px solid rgba(255,255,255,.18);
-  box-shadow:0 20px 70px rgba(0,0,0,.6);
-}
-
-.photoWrap img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  animation:photoZoom 6s ease forwards;
-}
-
-@keyframes photoZoom{
-  from{transform:scale(1.08)}
-  to{transform:scale(1)}
-}
-
-.photoCaption{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  padding:45px 20px 22px;
-  background:linear-gradient(transparent,rgba(0,0,0,.85));
-  font-size:18px;
-}
-
-/* NOTE */
-.note{
-  text-align:left;
-  max-height:65vh;
-  overflow:auto;
-  scrollbar-width:none;
-}
-
-.note::-webkit-scrollbar{
-  display:none;
-}
-
-.note p{
-  font-size:17px;
-  line-height:1.85;
-}
-
-.note .center{
-  text-align:center;
-}
-
-/* FINAL */
-.finalHeart{
-  font-size:90px;
-  animation:bigPulse 1.6s infinite;
-  filter:drop-shadow(0 0 25px #ff3b91);
-}
-
-@keyframes bigPulse{
-  50%{
-    transform:scale(1.18);
-  }
-}
-
-.finalTitle{
-  margin-top:18px;
-  font-size:48px;
-  letter-spacing:3px;
-  text-shadow:0 0 30px rgba(255,60,150,.8);
-}
-
-.signature{
-  margin-top:25px;
-  font-size:14px;
-  letter-spacing:3px;
-  opacity:.65;
-}
-
-/* LOADING */
-.loaderHeart{
-  font-size:75px;
-  animation:bigPulse 1.5s infinite;
-}
-
-.loading{
-  width:230px;
-  height:5px;
-  background:rgba(255,255,255,.12);
-  border-radius:10px;
-  margin:30px auto 15px;
-  overflow:hidden;
-}
-
-.loading span{
-  display:block;
-  width:0;
-  height:100%;
-  background:linear-gradient(90deg,#ff3c91,#b64cff);
-  animation:load 3s forwards;
-}
-
-@keyframes load{
-  to{width:100%}
-}
-
-/* TAP */
-.tap{
-  margin-top:22px;
-  font-size:12px;
-  letter-spacing:3px;
-  opacity:.5;
-}
+.dot.on{background:#ff8fc9;box-shadow:0 0 10px #ff8fc9}
 </style>
 </head>
 
 <body>
 
-<div class="bg">
-  <div class="glow g1"></div>
-  <div class="glow g2"></div>
-</div>
-
-<!-- LOADING -->
-<section class="screen active" id="s0">
-  <div class="content">
-    <div class="loaderHeart">❤️</div>
-    <div class="mini">A little surprise</div>
-    <div class="title">UTSHIKA</div>
-    <p class="subtitle">Something special is being prepared for you...</p>
-
-    <div class="loading">
-      <span></span>
-    </div>
-
-    <div class="tap">PLEASE WAIT ✨</div>
-  </div>
+<section class="slide active">
+ <div class="box">
+  <div class="small">A LITTLE SURPRISE FOR</div>
+  <h1>UTSHIKA</h1>
+  <p style="margin-top:20px">Wait... this isn't just another website ✨</p>
+  <button onclick="next()">TAP TO ENTER →</button>
+ </div>
 </section>
 
-
-<!-- INTRO -->
-<section class="screen" id="s1">
-  <div class="content">
-    <div class="mini">This is for you</div>
-
-    <div class="title">UTSHIKA ❤️</div>
-
-    <div class="card">
-      <p>
-        Kuch cheezein likhne ke liye
-        bahut bade words nahi chahiye...
-        <br><br>
-        bas <span class="highlight">dil se nikli hui baat</span>
-        kaafi hoti hai. ❤️
-      </p>
-    </div>
-
-    <button class="btn" onclick="nextScreen(1)">
-      OPEN MY SURPRISE ✨
-    </button>
-  </div>
+<section class="slide">
+ <div class="box">
+  <div class="card">🌸</div>
+  <h2>Some people are...</h2>
+  <p>just a normal part of your story.<br>
+  And then there are those who make the story special. ✨</p>
+ </div>
 </section>
 
-
-<!-- MEETING -->
-<section class="screen" id="s2">
-  <div class="content">
-    <div class="mini">One thing I miss</div>
-
-    <div class="card">
-      <p>
-        <span class="highlight">Bahut mahine ho gaye hain</span>
-        tumse properly mile hue... 🥺
-        <br><br>
-        Calls aur chats apni jagah hain,
-        lekin tumhe saamne dekhne ki
-        feeling hi alag hai.
-        <br><br>
-        Sach mein...
-        <br>
-        <span class="highlight">tumse milne ka bahut mann karta hai. ❤️</span>
-      </p>
-    </div>
-
-    <button class="btn" onclick="nextScreen(2)">
-      KEEP GOING ❤️
-    </button>
-  </div>
+<section class="slide">
+ <div class="box">
+  <div class="card">🦋</div>
+  <h2>Little moments</h2>
+  <p>Random talks.<br>Small fights.<br>Stupid jokes.<br>
+  And countless memories...</p>
+ </div>
 </section>
 
-
-<!-- PHOTO REEL -->
-<section class="screen" id="photoScreen">
-  <div class="content">
-
-    <div class="mini">Our little memories</div>
-
-    <div class="photoWrap">
-      <img id="photo" src="" alt="Memory">
-
-      <div class="photoCaption" id="caption">
-        A memory worth keeping ❤️
-      </div>
-    </div>
-
-    <div class="tap">MEMORY <span id="photoNumber">1</span></div>
-
-  </div>
+<section class="slide">
+ <div class="box">
+  <div class="teddy">🧸</div>
+  <h2>A tiny surprise...</h2>
+  <p>Because sometimes words aren't enough<br>
+  to explain how special someone is. 💗</p>
+ </div>
 </section>
 
-
-<!-- NOTE -->
-<section class="screen" id="s4">
-  <div class="content">
-
-    <div class="mini">From my heart</div>
-
-    <div class="card note">
-
-      <p class="center">
-        <span class="highlight">UTSHIKA ❤️</span>
-      </p>
-
-      <br>
-
-      <p>
-        Ye sirf ek video nahi hai...
-        ye meri taraf se tumhare liye
-        ek chhota sa surprise hai. 🥹❤️
-      </p>
-
-      <br>
-
-      <p>
-        Kabhi-kabhi sochta hoon,
-        itna kuch kehna hota hai tumse,
-        par saamne aate hi words kam pad jaate hain.
-      </p>
-
-      <br>
-
-      <p>
-        Bahut mahine ho gaye hain tumse properly
-        mile hue.
-        Kabhi-kabhi bas mann karta hai ki sab kuch
-        side mein rakhkar tumhare saamne baithun,
-        tumse baatein karun aur woh saare moments
-        phir se jee loon. ❤️
-      </p>
-
-      <br>
-
-      <p>
-        Calls aur chats apni jagah hain,
-        lekin tumhe saamne dekhne ki feeling alag hi hai.
-        <br>
-        <span class="highlight">
-        Sach mein, tumse milne ka bahut mann karta hai. 🫶🏻
-        </span>
-      </p>
-
-      <br>
-
-      <p>
-        Tum meri girlfriend ho,
-        meri favourite person ho,
-        aur meri life ka woh special part ho
-        jiske saath main aur bhi bahut saari memories
-        banana chahta hoon. ❤️
-      </p>
-
-      <br>
-
-      <p>
-        Bas ab ek hi wish hai...
-        <br><br>
-        <span class="highlight">
-        jaldi woh din aaye jab hum dono finally milen,
-        saath baithen, khoob saari baatein karein
-        aur itne mahino ki saari kami ek saath poori kar dein. 🥹❤️
-        </span>
-      </p>
-
-      <br>
-
-      <p class="center">
-        I LOVE YOU, UTSHIKA ❤️
-      </p>
-
-    </div>
-
-    <button class="btn" onclick="nextScreen(4)">
-      ONE LAST THING... ✨
-    </button>
-
-  </div>
+<section class="slide">
+ <div class="box">
+  <div class="heart">❤️</div>
+  <div class="small">ONE SIMPLE THING</div>
+  <h2>Stay the same...</h2>
+  <p>Your smile, your craziness,<br>
+  your little things — they're what make you, YOU. ✨</p>
+ </div>
 </section>
 
-
-<!-- FINAL BUILD UP -->
-<section class="screen" id="s5">
-  <div class="content">
-
-    <div class="mini">Wait for it...</div>
-
-    <div class="card">
-      <p style="font-size:25px">
-        Itna sab kehne ke baad...
-        <br><br>
-        ek cheez abhi bhi baaki hai. ❤️
-      </p>
-    </div>
-
-    <button class="btn" onclick="finalReveal()">
-      TAP FOR SURPRISE 🎁
-    </button>
-
-  </div>
+<section class="slide">
+ <div class="box">
+  <div class="small">AND FINALLY...</div>
+  <h1>UTSHIKA</h1>
+  <p style="margin-top:25px">
+   You are not just a name on a screen.<br>
+   You're a beautiful chapter in someone's story. 💫
+  </p>
+  <button onclick="next()">ONE LAST SURPRISE 🎁</button>
+ </div>
 </section>
 
-
-<!-- FINAL -->
-<section class="screen" id="s6">
-  <div class="content">
-
-    <div class="finalHeart">❤️</div>
-
-    <div class="finalTitle">
-      I LOVE YOU
-    </div>
-
-    <div class="title" style="font-size:42px;margin-top:8px">
-      UTSHIKA
-    </div>
-
-    <div class="card">
-      <p>
-        <span class="highlight">
-          Bahut saari memories abhi baaki hain... ♾️
-        </span>
-        <br><br>
-        Aur sabse special memory —
-        <br>
-        <b>tumse dobara milna. ❤️</b>
-      </p>
-    </div>
-
-    <div class="signature">
-      MADE WITH ❤️ JUST FOR YOU
-    </div>
-
+<section class="slide">
+ <div class="box">
+  <div class="teddy">🎁</div>
+  <h2>Special Surprise ✨</h2>
+  <p>
+   No matter how simple this little page is,<br>
+   the person it's made for is definitely<br>
+   <b>NOT ordinary. ❤️</b>
+  </p>
+  <div style="margin-top:25px;font-size:13px;color:#ffb6dc;letter-spacing:3px">
+   MADE WITH ✨ FOR UTSHIKA
   </div>
+ </div>
 </section>
 
+<div class="dots" id="dots"></div>
 
 <script>
+let i=0,s=document.querySelectorAll(".slide");
+let d=document.getElementById("dots");
 
-/* =========================
-   APNI PHOTOS YAHAN DALO
-   =========================
+s.forEach((_,x)=>{
+ d.innerHTML+=`<span class="dot ${x==0?'on':''}"></span>`;
+});
 
-   Example:
-   "photo1.jpg",
-   "photo2.jpg",
-   "photo3.jpg"
-
-   Ye files GitHub repository mein
-   index.html ke saath upload karna.
-*/
-
-const photos = [
-  "photo1.jpg",
-  "photo2.jpg",
-  "photo3.jpg",
-  "photo4.jpg"
-];
-
-const captions = [
-  "Some moments just stay in the heart. ❤️",
-  "And this one is special... ✨",
-  "Waiting for the next memory with you. 🫶🏻",
-  "Hopefully, very soon... ❤️"
-];
-
-let photoIndex = 0;
-
-
-/* SCREEN CHANGE */
-
-function nextScreen(current){
-
-  document.getElementById("s"+current)
-    .classList.remove("active");
-
-  if(current === 2){
-
-    document.getElementById("photoScreen")
-      .classList.add("active");
-
-    startPhotoReel();
-
-  }else{
-
-    document.getElementById("s"+(current+1))
-      .classList.add("active");
-
-  }
-
-  hearts(12);
+function next(){
+ s[i].classList.remove("active");
+ i=(i+1)%s.length;
+ s[i].classList.add("active");
+ [...d.children].forEach((x,n)=>x.classList.toggle("on",n==i));
 }
-
-
-/* PHOTO REEL */
-
-function startPhotoReel(){
-
-  if(photos.length === 0){
-
-    setTimeout(()=>{
-      document.getElementById("photoScreen")
-        .classList.remove("active");
-
-      document.getElementById("s4")
-        .classList.add("active");
-
-    },2500);
-
-    return;
-  }
-
-  showPhoto();
-
-  let interval = setInterval(()=>{
-
-    photoIndex++;
-
-    if(photoIndex >= photos.length){
-
-      clearInterval(interval);
-
-      document.getElementById("photoScreen")
-        .classList.remove("active");
-
-      document.getElementById("s4")
-        .classList.add("active");
-
-      hearts(20);
-
-      return;
-    }
-
-    showPhoto();
-
-  },5000);
-}
-
-
-function showPhoto(){
-
-  const img = document.getElementById("photo");
-
-  img.style.animation="none";
-
-  void img.offsetWidth;
-
-  img.src = photos[photoIndex];
-
-  img.style.animation="photoZoom 5s ease forwards";
-
-  document.getElementById("caption").innerText =
-    captions[photoIndex] || "A memory worth keeping ❤️";
-
-  document.getElementById("photoNumber").innerText =
-    photoIndex+1;
-}
-
-
-/* FINAL REVEAL */
-
-function finalReveal(){
-
-  document.getElementById("s5")
-    .classList.remove("active");
-
-  document.getElementById("s6")
-    .classList.add("active");
-
-  hearts(70);
-
-  setTimeout(()=>{
-    hearts(50);
-  },1800);
-
-  setTimeout(()=>{
-    hearts(50);
-  },3500);
-}
-
-
-/* FLOATING HEARTS */
-
-function hearts(amount){
-
-  for(let i=0;i<amount;i++){
-
-    const h=document.createElement("div");
-
-    h.className="heart";
-
-    const icons=[
-      "❤️","💗","💖","💕","✨","💞"
-    ];
-
-    h.innerText =
-      icons[Math.floor(Math.random()*icons.length)];
-
-    h.style.left =
-      Math.random()*100+"vw";
-
-    h.style.fontSize =
-      (15+Math.random()*28)+"px";
-
-    h.style.animationDuration =
-      (4+Math.random()*5)+"s";
-
-    h.style.animationDelay =
-      Math.random()*1.5+"s";
-
-    document.body.appendChild(h);
-
-    setTimeout(()=>{
-      h.remove();
-    },10000);
-  }
-}
-
-
-/* START */
-
-setTimeout(()=>{
-
-  document.getElementById("s0")
-    .classList.remove("active");
-
-  document.getElementById("s1")
-    .classList.add("active");
-
-  hearts(18);
-
-},3500);
-
 </script>
 
 </body>
-  </html>
+    </html>

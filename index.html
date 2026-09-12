@@ -3,155 +3,311 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>UTSHIKA ✨</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>UTSHIKA ❤️</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{
-  background:#05030a;color:white;font-family:Arial,sans-serif;
-  overflow:hidden;height:100vh
+  height:100vh;overflow:hidden;
+  font-family:Arial,sans-serif;color:#fff;
+  background:#050008;
 }
 .slide{
-  position:absolute;inset:0;display:flex;align-items:center;
-  justify-content:center;text-align:center;padding:25px;
-  opacity:0;transform:scale(1.08);
-  transition:1s ease;pointer-events:none;
+  position:absolute;inset:0;
+  display:none;align-items:center;justify-content:center;
+  text-align:center;padding:25px;
   background:
-   radial-gradient(circle at 50% 35%,#63235f55,transparent 35%),
-   radial-gradient(circle at 20% 80%,#ff3d8150,transparent 30%),
-   #05030a
+  radial-gradient(circle at 50% 30%,#ff3f8f30,transparent 32%),
+  radial-gradient(circle at 20% 80%,#8b45ff25,transparent 35%),
+  #050008;
 }
-.slide.active{opacity:1;transform:scale(1);pointer-events:auto}
-.box{max-width:390px;width:100%}
-.small{letter-spacing:5px;color:#ffb6dc;font-size:12px;margin-bottom:20px}
-h1{
- font-size:58px;letter-spacing:8px;
- background:linear-gradient(90deg,#fff,#ff9fd2,#fff);
- -webkit-background-clip:text;color:transparent;
- text-shadow:0 0 30px #ff4da688
+.slide.active{display:flex;animation:in .8s ease}
+@keyframes in{
+ from{opacity:0;transform:scale(1.08)}
+ to{opacity:1;transform:scale(1)}
+}
+
+.content{width:100%;max-width:390px}
+.sub{
+ font-size:11px;letter-spacing:5px;
+ color:#ffafd5;margin-bottom:18px;
+}
+.title{
+ font-size:55px;letter-spacing:7px;
+ background:linear-gradient(90deg,#fff,#ff83bf,#fff);
+ -webkit-background-clip:text;
+ color:transparent;
+ text-shadow:0 0 35px #ff4d9d66;
 }
 h2{font-size:30px;margin:18px 0}
-p{color:#ddd;line-height:1.8;font-size:16px}
-button{
- margin-top:35px;border:1px solid #ff9dcc;background:#ffffff12;
- color:white;padding:15px 28px;border-radius:40px;
- font-size:15px;box-shadow:0 0 25px #ff4d9d55
+p{font-size:16px;line-height:1.8;color:#ddd}
+
+.flower{
+ font-size:110px;
+ animation:bloom 2s ease-in-out infinite;
+ filter:drop-shadow(0 0 25px #ff79bb);
 }
+@keyframes bloom{
+ 50%{transform:scale(1.12) rotate(4deg)}
+}
+
+.teddy{
+ font-size:105px;
+ animation:float 2.5s ease-in-out infinite;
+ filter:drop-shadow(0 15px 20px #000);
+}
+@keyframes float{
+ 50%{transform:translateY(-16px)}
+}
+
 .card{
- margin:auto;width:270px;height:340px;border-radius:28px;
+ width:280px;height:330px;margin:auto;
+ border-radius:30px;
  display:flex;align-items:center;justify-content:center;
+ font-size:100px;
+ background:linear-gradient(145deg,#ff579c35,#7545ff35);
+ border:1px solid #ffffff25;
+ box-shadow:0 20px 70px #ff3d8160;
+ animation:float 3s infinite;
+}
+
+.heart{
  font-size:90px;
- background:linear-gradient(145deg,#ff7eb355,#7c4dff44);
- border:1px solid #ffffff33;
- box-shadow:0 20px 70px #ff3d8166;
- animation:float 3s ease-in-out infinite
+ animation:heart 1.3s infinite;
 }
-@keyframes float{50%{transform:translateY(-15px) rotate(1deg)}}
-.heart{font-size:75px;animation:pulse 1.4s infinite}
-@keyframes pulse{50%{transform:scale(1.18)}}
-.teddy{font-size:110px;animation:float 2.5s infinite}
-.dots{position:fixed;bottom:25px;left:0;right:0;text-align:center}
+@keyframes heart{
+ 50%{transform:scale(1.18)}
+}
+
+.buttons{
+ margin-top:30px;
+ display:flex;gap:12px;
+ justify-content:center;flex-wrap:wrap;
+}
+button{
+ border:1px solid #ff9dcc66;
+ background:#ffffff12;
+ color:white;
+ padding:13px 23px;
+ border-radius:30px;
+ font-size:14px;
+ cursor:pointer;
+ box-shadow:0 0 20px #ff4d9d30;
+}
+button:hover{background:#ff4d9d30}
+
+.yes{
+ background:#ff4d9d55;
+ border-color:#ff9dcc;
+}
+.no{background:#ffffff08}
+
+.nav{
+ position:fixed;
+ bottom:55px;
+ left:0;right:0;
+ display:flex;
+ justify-content:center;
+ gap:12px;
+ z-index:20;
+}
+
+.dots{
+ position:fixed;
+ bottom:20px;
+ left:0;right:0;
+ text-align:center;
+ z-index:20;
+}
 .dot{
- display:inline-block;width:7px;height:7px;background:#ffffff55;
- border-radius:50%;margin:4px
+ display:inline-block;
+ width:7px;height:7px;
+ border-radius:50%;
+ background:#ffffff40;
+ margin:4px;
 }
-.dot.on{background:#ff8fc9;box-shadow:0 0 10px #ff8fc9}
+.dot.on{
+ background:#ff8fc9;
+ box-shadow:0 0 10px #ff8fc9;
+}
+
+#reaction{
+ margin-top:20px;
+ color:#ffacd5;
+ font-size:15px;
+ min-height:25px;
+}
+
+.spark{
+ position:fixed;
+ width:4px;height:4px;
+ background:#fff;
+ border-radius:50%;
+ animation:fall linear infinite;
+ opacity:.7;
+}
+@keyframes fall{
+ from{transform:translateY(-10vh);opacity:0}
+ 20%{opacity:1}
+ to{transform:translateY(110vh);opacity:0}
+}
 </style>
 </head>
 
 <body>
 
+<!-- 1 -->
 <section class="slide active">
- <div class="box">
-  <div class="small">A LITTLE SURPRISE FOR</div>
-  <h1>UTSHIKA</h1>
-  <p style="margin-top:20px">Wait... this isn't just another website ✨</p>
-  <button onclick="next()">TAP TO ENTER →</button>
- </div>
+<div class="content">
+ <div class="flower">🌸</div>
+ <div class="sub">A LITTLE SURPRISE FOR</div>
+ <div class="title">UTSHIKA</div>
+ <p style="margin-top:20px">
+  Something special is waiting for you... ✨
+ </p>
+</div>
 </section>
 
+<!-- 2 -->
 <section class="slide">
- <div class="box">
-  <div class="card">🌸</div>
-  <h2>Some people are...</h2>
-  <p>just a normal part of your story.<br>
-  And then there are those who make the story special. ✨</p>
- </div>
+<div class="content">
+ <div class="sub">JUST A LITTLE THOUGHT</div>
+ <div class="card">🌷</div>
+ <h2>Some people are special...</h2>
+ <p>
+  Not because they try to be,<br>
+  but because their presence<br>
+  simply makes things better. 💗
+ </p>
+</div>
 </section>
 
+<!-- 3 -->
 <section class="slide">
- <div class="box">
-  <div class="card">🦋</div>
-  <h2>Little moments</h2>
-  <p>Random talks.<br>Small fights.<br>Stupid jokes.<br>
-  And countless memories...</p>
- </div>
+<div class="content">
+ <div class="card">🦋</div>
+ <h2>Little Things</h2>
+ <p>
+  Random talks...<br>
+  silly jokes...<br>
+  little fights...<br>
+  and those moments we remember. ✨
+ </p>
+</div>
 </section>
 
+<!-- 4 -->
 <section class="slide">
- <div class="box">
-  <div class="teddy">🧸</div>
-  <h2>A tiny surprise...</h2>
-  <p>Because sometimes words aren't enough<br>
-  to explain how special someone is. 💗</p>
- </div>
+<div class="content">
+ <div class="teddy">🧸</div>
+ <h2>Okay... One Cute Surprise</h2>
+ <p>
+  This teddy came all the way here<br>
+  just to say something...
+ </p>
+ <p style="color:#ff9dcc;margin-top:15px">
+  “You are pretty special.” ❤️
+ </p>
+</div>
 </section>
 
+<!-- 5 -->
 <section class="slide">
- <div class="box">
-  <div class="heart">❤️</div>
-  <div class="small">ONE SIMPLE THING</div>
-  <h2>Stay the same...</h2>
-  <p>Your smile, your craziness,<br>
-  your little things — they're what make you, YOU. ✨</p>
+<div class="content">
+ <div class="heart">❤️</div>
+ <div class="sub">NOW THE REAL QUESTION</div>
+ <h2>Do you love me?</h2>
+ <p>Think carefully... 😌</p>
+
+ <div class="buttons">
+  <button class="yes" onclick="yesLove()">YES ❤️</button>
+  <button class="no" onclick="noLove()">NO 🙈</button>
  </div>
+
+ <div id="reaction"></div>
+</div>
 </section>
 
+<!-- 6 -->
 <section class="slide">
- <div class="box">
-  <div class="small">AND FINALLY...</div>
-  <h1>UTSHIKA</h1>
-  <p style="margin-top:25px">
-   You are not just a name on a screen.<br>
-   You're a beautiful chapter in someone's story. 💫
-  </p>
-  <button onclick="next()">ONE LAST SURPRISE 🎁</button>
- </div>
+<div class="content">
+ <div class="flower">🌹</div>
+ <div class="sub">ONE LAST THING</div>
+ <h2>Whatever the answer...</h2>
+ <p>
+  Keep smiling.<br>
+  Keep being yourself.<br>
+  Because that's what makes you amazing. ✨
+ </p>
+</div>
 </section>
 
+<!-- 7 -->
 <section class="slide">
- <div class="box">
-  <div class="teddy">🎁</div>
-  <h2>Special Surprise ✨</h2>
-  <p>
-   No matter how simple this little page is,<br>
-   the person it's made for is definitely<br>
-   <b>NOT ordinary. ❤️</b>
-  </p>
-  <div style="margin-top:25px;font-size:13px;color:#ffb6dc;letter-spacing:3px">
-   MADE WITH ✨ FOR UTSHIKA
-  </div>
- </div>
+<div class="content">
+ <div class="teddy">🎁</div>
+ <div class="sub">SPECIAL SURPRISE</div>
+ <div class="title">UTSHIKA</div>
+ <p style="margin-top:25px">
+  This little page may be made of code,<br>
+  but the feeling behind it is real. ❤️
+ </p>
+ <p style="margin-top:18px;color:#ffafd5">
+  I Love You ❤️
+ </p>
+</div>
 </section>
+
+<div class="nav">
+ <button onclick="back()">← BACK</button>
+ <button class="yes" onclick="next()">NEXT →</button>
+</div>
 
 <div class="dots" id="dots"></div>
 
 <script>
-let i=0,s=document.querySelectorAll(".slide");
-let d=document.getElementById("dots");
+let current=0;
+const slides=document.querySelectorAll(".slide");
+const dots=document.getElementById("dots");
 
-s.forEach((_,x)=>{
- d.innerHTML+=`<span class="dot ${x==0?'on':''}"></span>`;
+slides.forEach((x,i)=>{
+ dots.innerHTML+=
+ `<span class="dot ${i===0?'on':''}"></span>`;
 });
 
-function next(){
- s[i].classList.remove("active");
- i=(i+1)%s.length;
- s[i].classList.add("active");
- [...d.children].forEach((x,n)=>x.classList.toggle("on",n==i));
+function show(n){
+ slides[current].classList.remove("active");
+ current=(n+slides.length)%slides.length;
+ slides[current].classList.add("active");
+
+ document.querySelectorAll(".dot").forEach((d,i)=>{
+  d.classList.toggle("on",i===current);
+ });
+}
+
+function next(){show(current+1)}
+function back(){show(current-1)}
+
+function yesLove(){
+ document.getElementById("reaction").innerHTML=
+ "I knew it! 😭❤️✨";
+}
+
+function noLove(){
+ document.getElementById("reaction").innerHTML=
+ "Okay... but I'm still smiling 🙈❤️";
+}
+
+for(let i=0;i<35;i++){
+ let s=document.createElement("div");
+ s.className="spark";
+ s.style.left=Math.random()*100+"%";
+ s.style.animationDuration=(3+Math.random()*6)+"s";
+ s.style.animationDelay=Math.random()*5+"s";
+ document.body.appendChild(s);
 }
 </script>
 
 </body>
-    </html>
+</html>

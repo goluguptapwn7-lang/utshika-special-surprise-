@@ -2,382 +2,745 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UTSHIKA ❤️</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>For UTSHIKA ❤️</title>
 
 <style>
 *{
-  box-sizing:border-box;
   margin:0;
   padding:0;
+  box-sizing:border-box;
+}
+
+html,body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  font-family:Arial,sans-serif;
+  background:#05020a;
+  color:#fff;
 }
 
 body{
-  min-height:100vh;
-  overflow:hidden;
-  font-family:Arial,sans-serif;
-  background:linear-gradient(135deg,#12001f,#5b0b46,#d4145a);
-  color:white;
+  position:relative;
 }
 
+/* BACKGROUND */
+.bg{
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(255,40,130,.25),transparent 30%),
+    radial-gradient(circle at 80% 80%,rgba(150,40,255,.22),transparent 30%),
+    linear-gradient(135deg,#05020a,#180817,#08030d);
+}
+
+.glow{
+  position:absolute;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  filter:blur(70px);
+  opacity:.45;
+  animation:moveGlow 8s infinite alternate ease-in-out;
+}
+
+.g1{
+  background:#ff197d;
+  top:-80px;
+  left:-70px;
+}
+
+.g2{
+  background:#7b2cff;
+  right:-80px;
+  bottom:-80px;
+  animation-delay:2s;
+}
+
+@keyframes moveGlow{
+  to{
+    transform:translate(70px,50px) scale(1.2);
+  }
+}
+
+/* SCREEN */
 .screen{
-  min-height:100vh;
-  width:100%;
+  position:absolute;
+  inset:0;
   display:none;
   align-items:center;
   justify-content:center;
-  text-align:center;
   padding:25px;
-  animation:show .8s ease;
+  text-align:center;
 }
 
 .active{
   display:flex;
+  animation:screenIn 1s cubic-bezier(.2,.8,.2,1);
 }
 
-.box{
-  width:100%;
-  max-width:480px;
-}
-
-.logo{
-  font-size:70px;
-  margin-bottom:20px;
-  animation:pulse 2s infinite;
-}
-
-h1{
-  font-size:48px;
-  letter-spacing:3px;
-  margin-bottom:18px;
-}
-
-h2{
-  font-size:32px;
-  margin-bottom:20px;
-}
-
-p{
-  font-size:20px;
-  line-height:1.7;
-}
-
-.small{
-  font-size:15px;
-  opacity:.75;
-  margin-top:18px;
-}
-
-.loading{
-  width:85%;
-  height:9px;
-  background:rgba(255,255,255,.2);
-  border-radius:20px;
-  margin:30px auto 12px;
-  overflow:hidden;
-}
-
-.bar{
-  height:100%;
-  width:0;
-  background:white;
-  border-radius:20px;
-  animation:load 3s forwards;
-}
-
-button{
-  border:0;
-  padding:15px 38px;
-  margin-top:28px;
-  border-radius:40px;
-  font-size:18px;
-  font-weight:bold;
-  cursor:pointer;
-  background:white;
-  color:#d4145a;
-  box-shadow:0 8px 25px rgba(0,0,0,.3);
-}
-
-button:active{
-  transform:scale(.94);
-}
-
-.next{
-  margin-top:30px;
-}
-
-.heart{
-  position:fixed;
-  bottom:-40px;
-  font-size:25px;
-  pointer-events:none;
-  animation:float 6s linear forwards;
-}
-
-.note{
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.25);
-  border-radius:25px;
-  padding:28px 22px;
-  backdrop-filter:blur(8px);
-}
-
-.choice{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-}
-
-.choice button{
-  min-width:130px;
-}
-
-.no{
-  background:transparent;
-  border:1px solid white;
-  color:white;
-}
-
-#answer{
-  margin-top:25px;
-  font-size:21px;
-  line-height:1.6;
-}
-
-@keyframes show{
+@keyframes screenIn{
   from{
     opacity:0;
-    transform:scale(.92) translateY(20px);
+    transform:scale(1.06);
   }
   to{
     opacity:1;
-    transform:scale(1) translateY(0);
+    transform:scale(1);
   }
 }
 
-@keyframes pulse{
-  50%{transform:scale(1.12)}
+.content{
+  width:100%;
+  max-width:440px;
+  position:relative;
+  z-index:5;
+}
+
+/* TEXT */
+.mini{
+  font-size:13px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  opacity:.65;
+  margin-bottom:18px;
+}
+
+.title{
+  font-size:clamp(42px,13vw,70px);
+  letter-spacing:7px;
+  font-weight:800;
+  text-shadow:0 0 30px rgba(255,70,160,.7);
+}
+
+.subtitle{
+  margin-top:18px;
+  font-size:18px;
+  line-height:1.7;
+  opacity:.9;
+}
+
+.pink{
+  color:#ff72b4;
+}
+
+/* GLASS CARD */
+.card{
+  margin-top:25px;
+  padding:28px 22px;
+  border-radius:30px;
+  background:rgba(255,255,255,.075);
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:
+    0 20px 70px rgba(0,0,0,.45),
+    inset 0 1px rgba(255,255,255,.12);
+  backdrop-filter:blur(18px);
+}
+
+.card p{
+  font-size:18px;
+  line-height:1.8;
+}
+
+.highlight{
+  color:#ff8ac4;
+  font-weight:bold;
+}
+
+/* BUTTON */
+.btn{
+  margin-top:28px;
+  padding:15px 35px;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:50px;
+  background:linear-gradient(135deg,#ff3c91,#9d35ff);
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  box-shadow:0 10px 35px rgba(255,40,130,.35);
+  cursor:pointer;
+  transition:.3s;
+}
+
+.btn:active{
+  transform:scale(.94);
+}
+
+/* HEART */
+.heart{
+  position:fixed;
+  bottom:-50px;
+  z-index:2;
+  pointer-events:none;
+  animation:floatUp linear forwards;
+}
+
+@keyframes floatUp{
+  0%{
+    transform:translateY(0) scale(.5) rotate(0);
+    opacity:0;
+  }
+  15%{opacity:1}
+  100%{
+    transform:translateY(-115vh) scale(1.2) rotate(360deg);
+    opacity:0;
+  }
+}
+
+/* PHOTO */
+.photoWrap{
+  width:100%;
+  height:55vh;
+  max-height:510px;
+  border-radius:28px;
+  overflow:hidden;
+  position:relative;
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 20px 70px rgba(0,0,0,.6);
+}
+
+.photoWrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  animation:photoZoom 6s ease forwards;
+}
+
+@keyframes photoZoom{
+  from{transform:scale(1.08)}
+  to{transform:scale(1)}
+}
+
+.photoCaption{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:45px 20px 22px;
+  background:linear-gradient(transparent,rgba(0,0,0,.85));
+  font-size:18px;
+}
+
+/* NOTE */
+.note{
+  text-align:left;
+  max-height:65vh;
+  overflow:auto;
+  scrollbar-width:none;
+}
+
+.note::-webkit-scrollbar{
+  display:none;
+}
+
+.note p{
+  font-size:17px;
+  line-height:1.85;
+}
+
+.note .center{
+  text-align:center;
+}
+
+/* FINAL */
+.finalHeart{
+  font-size:90px;
+  animation:bigPulse 1.6s infinite;
+  filter:drop-shadow(0 0 25px #ff3b91);
+}
+
+@keyframes bigPulse{
+  50%{
+    transform:scale(1.18);
+  }
+}
+
+.finalTitle{
+  margin-top:18px;
+  font-size:48px;
+  letter-spacing:3px;
+  text-shadow:0 0 30px rgba(255,60,150,.8);
+}
+
+.signature{
+  margin-top:25px;
+  font-size:14px;
+  letter-spacing:3px;
+  opacity:.65;
+}
+
+/* LOADING */
+.loaderHeart{
+  font-size:75px;
+  animation:bigPulse 1.5s infinite;
+}
+
+.loading{
+  width:230px;
+  height:5px;
+  background:rgba(255,255,255,.12);
+  border-radius:10px;
+  margin:30px auto 15px;
+  overflow:hidden;
+}
+
+.loading span{
+  display:block;
+  width:0;
+  height:100%;
+  background:linear-gradient(90deg,#ff3c91,#b64cff);
+  animation:load 3s forwards;
 }
 
 @keyframes load{
   to{width:100%}
 }
 
-@keyframes float{
-  from{
-    transform:translateY(0) rotate(0);
-    opacity:0;
-  }
-  20%{opacity:1}
-  to{
-    transform:translateY(-110vh) rotate(360deg);
-    opacity:0;
-  }
+/* TAP */
+.tap{
+  margin-top:22px;
+  font-size:12px;
+  letter-spacing:3px;
+  opacity:.5;
 }
 </style>
 </head>
 
 <body>
 
+<div class="bg">
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+</div>
+
 <!-- LOADING -->
 <section class="screen active" id="s0">
-  <div class="box">
-    <div class="logo">❤️</div>
-    <h1>UTSHIKA</h1>
-    <p>Preparing something special...</p>
+  <div class="content">
+    <div class="loaderHeart">❤️</div>
+    <div class="mini">A little surprise</div>
+    <div class="title">UTSHIKA</div>
+    <p class="subtitle">Something special is being prepared for you...</p>
 
     <div class="loading">
-      <div class="bar"></div>
+      <span></span>
     </div>
 
-    <p class="small">Please wait... ✨</p>
+    <div class="tap">PLEASE WAIT ✨</div>
   </div>
 </section>
 
 
-<!-- STEP 1 -->
+<!-- INTRO -->
 <section class="screen" id="s1">
-  <div class="box">
-    <div class="logo">🧸</div>
-    <h2>Step 1 ❤️</h2>
+  <div class="content">
+    <div class="mini">This is for you</div>
 
-    <div class="note">
+    <div class="title">UTSHIKA ❤️</div>
+
+    <div class="card">
       <p>
-        Kuch rishte naam se nahi,<br>
-        <b>feelings se special</b> hote hain. ❤️
+        Kuch cheezein likhne ke liye
+        bahut bade words nahi chahiye...
+        <br><br>
+        bas <span class="highlight">dil se nikli hui baat</span>
+        kaafi hoti hai. ❤️
       </p>
     </div>
 
-    <button class="next" onclick="next(1)">
-      NEXT ➜
+    <button class="btn" onclick="nextScreen(1)">
+      OPEN MY SURPRISE ✨
     </button>
   </div>
 </section>
 
 
-<!-- STEP 2 -->
+<!-- MEETING -->
 <section class="screen" id="s2">
-  <div class="box">
-    <div class="logo">✨</div>
-    <h2>Step 2 💕</h2>
+  <div class="content">
+    <div class="mini">One thing I miss</div>
 
-    <div class="note">
+    <div class="card">
       <p>
-        Tumhari ek smile 😊<br>
-        kisi ka pura din better kar sakti hai.
+        <span class="highlight">Bahut mahine ho gaye hain</span>
+        tumse properly mile hue... 🥺
         <br><br>
-        Isliye hamesha smile karti rehna. ❤️
+        Calls aur chats apni jagah hain,
+        lekin tumhe saamne dekhne ki
+        feeling hi alag hai.
+        <br><br>
+        Sach mein...
+        <br>
+        <span class="highlight">tumse milne ka bahut mann karta hai. ❤️</span>
       </p>
     </div>
 
-    <button class="next" onclick="next(2)">
-      NEXT ➜
+    <button class="btn" onclick="nextScreen(2)">
+      KEEP GOING ❤️
     </button>
   </div>
 </section>
 
 
-<!-- STEP 3 -->
-<section class="screen" id="s3">
-  <div class="box">
-    <div class="logo">💖</div>
-    <h2>Step 3</h2>
+<!-- PHOTO REEL -->
+<section class="screen" id="photoScreen">
+  <div class="content">
 
-    <div class="note">
-      <p>
-        Har relationship me kabhi hasi,<br>
-        kabhi narazgi aur kabhi choti-moti
-        nok-jhok hoti hai.
-        <br><br>
-        Lekin kuch log dil me<br>
-        <b>hamesha special</b> rehte hain. ❤️
-      </p>
-    </div>
+    <div class="mini">Our little memories</div>
 
-    <button class="next" onclick="next(3)">
-      NEXT ➜
-    </button>
-  </div>
-</section>
+    <div class="photoWrap">
+      <img id="photo" src="" alt="Memory">
 
-
-<!-- STEP 4 -->
-<section class="screen" id="s4">
-  <div class="box">
-    <div class="logo">🥺❤️</div>
-    <h2>Ek chhoti si baat...</h2>
-
-    <div class="note">
-      <p>
-        UTSHIKA sirf ek naam nahi...
-        <br><br>
-        <b>ek khoobsurat bond hai.</b>
-        <br><br>
-        Aur kuch bonds ko words se
-        explain nahi kiya ja sakta. ♾️
-      </p>
-    </div>
-
-    <button class="next" onclick="next(4)">
-      NEXT ➜
-    </button>
-  </div>
-</section>
-
-
-<!-- SPECIAL SURPRISE -->
-<section class="screen" id="s5">
-  <div class="box">
-    <div class="logo">🎁</div>
-    <h1>Special Surprise</h1>
-
-    <div class="note">
-      <p>
-        UTSHIKA ❤️
-        <br><br>
-        Ab ek last question...
-        <br><br>
-        <b>Kya tum mujhe<br>
-        “I LOVE YOU” ❤️ bolna chahogi?</b>
-      </p>
-
-      <div class="choice">
-        <button onclick="yes()">HAA ❤️</button>
-        <button class="no" onclick="nope()">NAHI 🙈</button>
+      <div class="photoCaption" id="caption">
+        A memory worth keeping ❤️
       </div>
-
-      <div id="answer"></div>
     </div>
+
+    <div class="tap">MEMORY <span id="photoNumber">1</span></div>
+
+  </div>
+</section>
+
+
+<!-- NOTE -->
+<section class="screen" id="s4">
+  <div class="content">
+
+    <div class="mini">From my heart</div>
+
+    <div class="card note">
+
+      <p class="center">
+        <span class="highlight">UTSHIKA ❤️</span>
+      </p>
+
+      <br>
+
+      <p>
+        Ye sirf ek video nahi hai...
+        ye meri taraf se tumhare liye
+        ek chhota sa surprise hai. 🥹❤️
+      </p>
+
+      <br>
+
+      <p>
+        Kabhi-kabhi sochta hoon,
+        itna kuch kehna hota hai tumse,
+        par saamne aate hi words kam pad jaate hain.
+      </p>
+
+      <br>
+
+      <p>
+        Bahut mahine ho gaye hain tumse properly
+        mile hue.
+        Kabhi-kabhi bas mann karta hai ki sab kuch
+        side mein rakhkar tumhare saamne baithun,
+        tumse baatein karun aur woh saare moments
+        phir se jee loon. ❤️
+      </p>
+
+      <br>
+
+      <p>
+        Calls aur chats apni jagah hain,
+        lekin tumhe saamne dekhne ki feeling alag hi hai.
+        <br>
+        <span class="highlight">
+        Sach mein, tumse milne ka bahut mann karta hai. 🫶🏻
+        </span>
+      </p>
+
+      <br>
+
+      <p>
+        Tum meri girlfriend ho,
+        meri favourite person ho,
+        aur meri life ka woh special part ho
+        jiske saath main aur bhi bahut saari memories
+        banana chahta hoon. ❤️
+      </p>
+
+      <br>
+
+      <p>
+        Bas ab ek hi wish hai...
+        <br><br>
+        <span class="highlight">
+        jaldi woh din aaye jab hum dono finally milen,
+        saath baithen, khoob saari baatein karein
+        aur itne mahino ki saari kami ek saath poori kar dein. 🥹❤️
+        </span>
+      </p>
+
+      <br>
+
+      <p class="center">
+        I LOVE YOU, UTSHIKA ❤️
+      </p>
+
+    </div>
+
+    <button class="btn" onclick="nextScreen(4)">
+      ONE LAST THING... ✨
+    </button>
+
+  </div>
+</section>
+
+
+<!-- FINAL BUILD UP -->
+<section class="screen" id="s5">
+  <div class="content">
+
+    <div class="mini">Wait for it...</div>
+
+    <div class="card">
+      <p style="font-size:25px">
+        Itna sab kehne ke baad...
+        <br><br>
+        ek cheez abhi bhi baaki hai. ❤️
+      </p>
+    </div>
+
+    <button class="btn" onclick="finalReveal()">
+      TAP FOR SURPRISE 🎁
+    </button>
+
+  </div>
+</section>
+
+
+<!-- FINAL -->
+<section class="screen" id="s6">
+  <div class="content">
+
+    <div class="finalHeart">❤️</div>
+
+    <div class="finalTitle">
+      I LOVE YOU
+    </div>
+
+    <div class="title" style="font-size:42px;margin-top:8px">
+      UTSHIKA
+    </div>
+
+    <div class="card">
+      <p>
+        <span class="highlight">
+          Bahut saari memories abhi baaki hain... ♾️
+        </span>
+        <br><br>
+        Aur sabse special memory —
+        <br>
+        <b>tumse dobara milna. ❤️</b>
+      </p>
+    </div>
+
+    <div class="signature">
+      MADE WITH ❤️ JUST FOR YOU
+    </div>
+
   </div>
 </section>
 
 
 <script>
 
-let current=0;
+/* =========================
+   APNI PHOTOS YAHAN DALO
+   =========================
 
-function next(n){
-  document.getElementById("s"+n).classList.remove("active");
-  document.getElementById("s"+(n+1)).classList.add("active");
+   Example:
+   "photo1.jpg",
+   "photo2.jpg",
+   "photo3.jpg"
 
-  hearts(8);
+   Ye files GitHub repository mein
+   index.html ke saath upload karna.
+*/
+
+const photos = [
+  "photo1.jpg",
+  "photo2.jpg",
+  "photo3.jpg",
+  "photo4.jpg"
+];
+
+const captions = [
+  "Some moments just stay in the heart. ❤️",
+  "And this one is special... ✨",
+  "Waiting for the next memory with you. 🫶🏻",
+  "Hopefully, very soon... ❤️"
+];
+
+let photoIndex = 0;
+
+
+/* SCREEN CHANGE */
+
+function nextScreen(current){
+
+  document.getElementById("s"+current)
+    .classList.remove("active");
+
+  if(current === 2){
+
+    document.getElementById("photoScreen")
+      .classList.add("active");
+
+    startPhotoReel();
+
+  }else{
+
+    document.getElementById("s"+(current+1))
+      .classList.add("active");
+
+  }
+
+  hearts(12);
 }
 
-setTimeout(function(){
-  document.getElementById("s0").classList.remove("active");
-  document.getElementById("s1").classList.add("active");
-  hearts(15);
-},3500);
 
+/* PHOTO REEL */
 
-function yes(){
+function startPhotoReel(){
 
-  document.getElementById("answer").innerHTML=
-  "Awww 🥺❤️<br><br>"+
-  "<b>I LOVE YOU TOO ❤️</b><br>"+
-  "UTSHIKA ♾️<br><br>"+
-  "This little surprise was made specially for you. 🧸💕";
+  if(photos.length === 0){
 
-  hearts(45);
+    setTimeout(()=>{
+      document.getElementById("photoScreen")
+        .classList.remove("active");
+
+      document.getElementById("s4")
+        .classList.add("active");
+
+    },2500);
+
+    return;
+  }
+
+  showPhoto();
+
+  let interval = setInterval(()=>{
+
+    photoIndex++;
+
+    if(photoIndex >= photos.length){
+
+      clearInterval(interval);
+
+      document.getElementById("photoScreen")
+        .classList.remove("active");
+
+      document.getElementById("s4")
+        .classList.add("active");
+
+      hearts(20);
+
+      return;
+    }
+
+    showPhoto();
+
+  },5000);
 }
 
 
-function nope(){
+function showPhoto(){
 
-  document.getElementById("answer").innerHTML=
-  "Hehe 🙈❤️<br><br>"+
-  "Koi baat nahi...<br>"+
-  "Smile karna mat bhoolna. 😊💕";
+  const img = document.getElementById("photo");
+
+  img.style.animation="none";
+
+  void img.offsetWidth;
+
+  img.src = photos[photoIndex];
+
+  img.style.animation="photoZoom 5s ease forwards";
+
+  document.getElementById("caption").innerText =
+    captions[photoIndex] || "A memory worth keeping ❤️";
+
+  document.getElementById("photoNumber").innerText =
+    photoIndex+1;
 }
 
+
+/* FINAL REVEAL */
+
+function finalReveal(){
+
+  document.getElementById("s5")
+    .classList.remove("active");
+
+  document.getElementById("s6")
+    .classList.add("active");
+
+  hearts(70);
+
+  setTimeout(()=>{
+    hearts(50);
+  },1800);
+
+  setTimeout(()=>{
+    hearts(50);
+  },3500);
+}
+
+
+/* FLOATING HEARTS */
 
 function hearts(amount){
 
   for(let i=0;i<amount;i++){
 
-    let h=document.createElement("div");
+    const h=document.createElement("div");
 
     h.className="heart";
 
-    h.innerHTML=
-      Math.random()>.5 ? "❤️" : "💗";
+    const icons=[
+      "❤️","💗","💖","💕","✨","💞"
+    ];
 
-    h.style.left=
+    h.innerText =
+      icons[Math.floor(Math.random()*icons.length)];
+
+    h.style.left =
       Math.random()*100+"vw";
 
-    h.style.animationDuration=
-      (4+Math.random()*4)+"s";
+    h.style.fontSize =
+      (15+Math.random()*28)+"px";
 
-    h.style.fontSize=
-      (18+Math.random()*25)+"px";
+    h.style.animationDuration =
+      (4+Math.random()*5)+"s";
+
+    h.style.animationDelay =
+      Math.random()*1.5+"s";
 
     document.body.appendChild(h);
 
     setTimeout(()=>{
       h.remove();
-    },8000);
+    },10000);
   }
 }
+
+
+/* START */
+
+setTimeout(()=>{
+
+  document.getElementById("s0")
+    .classList.remove("active");
+
+  document.getElementById("s1")
+    .classList.add("active");
+
+  hearts(18);
+
+},3500);
 
 </script>
 
